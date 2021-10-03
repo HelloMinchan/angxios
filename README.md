@@ -15,5 +15,5 @@ or
 Using yarn:
 
 ```bash
-npm install angxios
+yarn install angxios
 ```
