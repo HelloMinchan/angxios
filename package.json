@@ -1,0 +1,31 @@
+{
+  "name": "angxios",
+  "version": "0.0.1",
+  "description": "Wrapper Module for retry of Promise based HTTP client for the browser and node.js",
+  "keywords": [
+    "axios",
+    "xhr",
+    "http",
+    "ajax",
+    "promise",
+    "node"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelloMinchan/angxios.git"
+  },
+  "author": {
+    "name": "minchan jung",
+    "email": "minchance98@gmail.scom",
+    "url": "https://github.com/HelloMinchan"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HelloMinchan/angxios/issues"
+  },
+  "homepage": "https://github.com/HelloMinchan/angxios#readme"
+}
