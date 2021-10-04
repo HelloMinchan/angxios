@@ -5,20 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+var _axios = _interopRequireDefault(require("axios"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 var angxios = function angxios() {
-  var test = 1;
-  var test2 = 2;
-
-  var a = function a() {
-    console.log(a);
-  };
-
-  a();
-  console.log("hello angxios");
-  return {
-    test: test,
-    test2: test2
-  };
+  return _axios["default"];
 };
 
 var _default = angxios;
