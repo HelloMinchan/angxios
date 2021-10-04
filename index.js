@@ -1,1 +1,1 @@
-module.exports = require("./lib/index").default;
+module.exports = require("./dist/index").default;
