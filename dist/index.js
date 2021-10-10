@@ -133,40 +133,40 @@ var Angxios = new ( /*#__PURE__*/function () {
      * @name post
      * @description axios post Function
      * @param {string} url
-     * @param {?object} body
+     * @param {?object} data
      * @param {?object} config
      */
 
   }, {
     key: "post",
-    value: function post(url, body, config) {
-      return _axios["default"].post(url, body ? body : null, config ? config : null);
+    value: function post(url, data, config) {
+      return _axios["default"].post(url, data ? data : null, config ? config : null);
     }
     /**
      * @name put
      * @description axios put Function
      * @param {string} url
-     * @param {?object} body
+     * @param {?object} data
      * @param {?object} config
      */
 
   }, {
     key: "put",
-    value: function put(url, body, config) {
-      return _axios["default"].put(url, body ? body : null, config ? config : null);
+    value: function put(url, data, config) {
+      return _axios["default"].put(url, data ? data : null, config ? config : null);
     }
     /**
      * @name patch
      * @description axios patch Function
      * @param {string} url
-     * @param {?object} body
+     * @param {?object} data
      * @param {?object} config
      */
 
   }, {
     key: "patch",
-    value: function patch(url, body, config) {
-      return _axios["default"].patch(url, body ? body : null, config ? config : null);
+    value: function patch(url, data, config) {
+      return _axios["default"].patch(url, data ? data : null, config ? config : null);
     }
   }]);
 

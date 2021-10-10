@@ -6,9 +6,9 @@
 
 Promise based HTTP client for the browser and node.js is... [axios](https://www.npmjs.org/package/axios) 😂
 
-**angxios** is Wrapper Module for retry of axios (In Korean, It's "앙시오스"..)
+**angxios** is Wrapper Module for **retry** of axios (In Korean, It's "앙시오스"..)
 
-> purpose: retry, identicality, reusable
+> purpose: simple, identicality, reusable, compatible
 
 ## Installing
 
@@ -24,4 +24,55 @@ Using yarn:
 
 ```bash
 yarn install angxios
+```
+
+## Usage
+
+### Note: angxios supports CommonJS and ES(TS) both.
+
+```js
+// CommonJS module require
+const angxios = require("angxios");
+
+// ES(TS) module import
+import angxios from "angxios";
+```
+
+### Retry Setting
+
+It's very simple, just set count for retry.
+
+```js
+// set request retry count
+angxios.setRetryCount(1);
+```
+
+### Default Setting
+
+```js
+// set global base URL
+angxios.setBaseURL("exampleURL");
+
+// set global defaults timeout(ms)
+angxios.setTimeout(1000); // this means 1sec
+```
+
+### Request Method Aliases
+
+Basically, It's the same as that of axios.</br>
+However, except for the example below, the wrapper method is not supported.
+
+**angxios.get(url, config?)**</br>
+**angxios.delete(url, config?)**</br>
+**angxios.options(url, config?)**</br>
+**angxios.post(url, data?, config?)**</br>
+**angxios.put(url, data?, config?)**</br>
+**angxios.patch(url, data?, config?)**</br>
+
+```js
+// Performing a GET request example
+angxios
+  .get("https://jsonplaceholder.typicode.com/todos/1")
+  .then((res) => console.log(res.data))
+  .then((err) => console.log(err.message));
 ```

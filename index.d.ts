@@ -43,26 +43,26 @@ interface IAngxios {
    * @name post
    * @description axios post Function
    * @param {string} url
-   * @param {?object} body
+   * @param {?object} data
    * @param {?object} config
    */
-  post(url: string, body?: any, config?: any): Promise<any>;
+  post(url: string, data?: any, config?: any): Promise<any>;
   /**
    * @name put
    * @description axios put Function
    * @param {string} url
-   * @param {?object} body
+   * @param {?object} data
    * @param {?object} config
    */
-  put(url: string, body?: any, config?: any): Promise<any>;
+  put(url: string, data?: any, config?: any): Promise<any>;
   /**
    * @name patch
    * @description axios patch Function
    * @param {string} url
-   * @param {?object} body
+   * @param {?object} data
    * @param {?object} config
    */
-  patch(url: string, body?: any, config?: any): Promise<any>;
+  patch(url: string, data?: any, config?: any): Promise<any>;
 }
 
 declare const angxios: IAngxios;
