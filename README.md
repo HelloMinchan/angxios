@@ -59,15 +59,21 @@ angxios.setTimeout(1000); // this means 1sec
 
 ### Request Method Aliases
 
-Basically, It's the same as that of axios.</br>
+Basically, It's the same as that of axios.
+
 However, except for the example below, the wrapper method is not supported.
 
-**angxios.get(url, config?)**</br>
-**angxios.delete(url, config?)**</br>
-**angxios.options(url, config?)**</br>
-**angxios.post(url, data?, config?)**</br>
-**angxios.put(url, data?, config?)**</br>
-**angxios.patch(url, data?, config?)**</br>
+##### angxios.get(url, config?)
+
+##### angxios.delete(url, config?)
+
+##### angxios.options(url, config?)
+
+##### angxios.post(url, data?, config?)
+
+##### angxios.put(url, data?, config?)
+
+##### angxios.patch(url, data?, config?)
 
 ```js
 // Performing a GET request example
