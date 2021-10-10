@@ -17,9 +17,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var angxios = new ( /*#__PURE__*/function () {
+var NAMESPACE = "angxios";
+var NON_BODY_HTTP_METHOD = ["get", "delete", "options"];
+
+_axios["default"].interceptors.request.use(function (config) {
+  var angxiosConfig = config[NAMESPACE] || {};
+
+  if (Object.keys(angxiosConfig).length === 0) {
+    config[NAMESPACE] = angxiosConfig;
+    angxiosConfig.retryCount = Angxios.retryCount;
+  } else {
+    --angxiosConfig.retryCount;
+  }
+
+  return config;
+});
+
+_axios["default"].interceptors.response.use(function (config) {
+  return config;
+}, function (error) {
+  var config = error.config;
+
+  if (config[NAMESPACE].retryCount > 0) {
+    if (NON_BODY_HTTP_METHOD.includes(config.method)) {
+      return _axios["default"]["".concat(config.method)](config.url, config);
+    } else {
+      return _axios["default"]["".concat(config.method)](config.url, config.data, config);
+    }
+  }
+
+  return Promise.reject(error);
+});
+
+var Angxios = new ( /*#__PURE__*/function () {
   function _class2() {
     _classCallCheck(this, _class2);
+
+    _defineProperty(this, "retryCount", 0);
 
     _defineProperty(this, "axios", _axios["default"]);
   }
@@ -45,6 +79,17 @@ var angxios = new ( /*#__PURE__*/function () {
     key: "setTimeout",
     value: function setTimeout(time) {
       _axios["default"].defaults.timeout = time;
+    }
+    /**
+     * @name setRetryCount
+     * @description set request retry count
+     * @param {number} retryCount
+     */
+
+  }, {
+    key: "setRetryCount",
+    value: function setRetryCount(retryCount) {
+      this.retryCount = retryCount;
     } // request(config) {}
     // head(url, config) {}
 
@@ -52,16 +97,13 @@ var angxios = new ( /*#__PURE__*/function () {
      * @name get
      * @description axios get Function
      * @param {string} url
-     * @param {?object} params
+     * @param {?object} config
      */
 
   }, {
     key: "get",
-    value: function get(url, parmas) {
-      var config = {
-        parmas: parmas ? parmas : null
-      };
-      return _axios["default"].get(url, config);
+    value: function get(url, config) {
+      return _axios["default"].get(url, config ? config : null);
     }
     /**
      * @name delete
@@ -73,7 +115,7 @@ var angxios = new ( /*#__PURE__*/function () {
   }, {
     key: "delete",
     value: function _delete(url, config) {
-      return _axios["default"].get(url, config);
+      return _axios["default"]["delete"](url, config ? config : null);
     }
     /**
      * @name options
@@ -85,7 +127,7 @@ var angxios = new ( /*#__PURE__*/function () {
   }, {
     key: "options",
     value: function options(url, config) {
-      return _axios["default"].get(url, config);
+      return _axios["default"].options(url, config ? config : null);
     }
     /**
      * @name post
@@ -98,7 +140,7 @@ var angxios = new ( /*#__PURE__*/function () {
   }, {
     key: "post",
     value: function post(url, body, config) {
-      return _axios["default"].get(url, body ? body : null, config);
+      return _axios["default"].post(url, body ? body : null, config ? config : null);
     }
     /**
      * @name put
@@ -111,7 +153,7 @@ var angxios = new ( /*#__PURE__*/function () {
   }, {
     key: "put",
     value: function put(url, body, config) {
-      return _axios["default"].get(url, body ? body : null, config);
+      return _axios["default"].put(url, body ? body : null, config ? config : null);
     }
     /**
      * @name patch
@@ -124,12 +166,12 @@ var angxios = new ( /*#__PURE__*/function () {
   }, {
     key: "patch",
     value: function patch(url, body, config) {
-      return _axios["default"].get(url, body ? body : null, config);
+      return _axios["default"].patch(url, body ? body : null, config ? config : null);
     }
   }]);
 
   return _class2;
 }())();
-var _default = angxios;
+var _default = Angxios;
 exports["default"] = _default;
 //# sourceMappingURL=index.js.map
