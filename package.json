@@ -1,6 +1,6 @@
 {
   "name": "angxios",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Wrapper Module for retry of Promise based HTTP client for the browser and node.js",
   "keywords": [
     "axios",

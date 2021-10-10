@@ -24,21 +24,21 @@ interface IAngxios {
    * @param {string} url
    * @param {?object} config
    */
-  get(url: string, config: any): Promise<any>;
+  get(url: string, config?: any): Promise<any>;
   /**
    * @name delete
    * @description axios delete Function
    * @param {string} url
    * @param {?object} config
    */
-  delete(url: string, config: any): Promise<any>;
+  delete(url: string, config?: any): Promise<any>;
   /**
    * @name options
    * @description axios options Function
    * @param {string} url
    * @param {?object} config
    */
-  options(url: string, config: any): Promise<any>;
+  options(url: string, config?: any): Promise<any>;
   /**
    * @name post
    * @description axios post Function
@@ -46,7 +46,7 @@ interface IAngxios {
    * @param {?object} body
    * @param {?object} config
    */
-  post(url: string, body: any, config: any): Promise<any>;
+  post(url: string, body?: any, config?: any): Promise<any>;
   /**
    * @name put
    * @description axios put Function
@@ -54,7 +54,7 @@ interface IAngxios {
    * @param {?object} body
    * @param {?object} config
    */
-  put(url: string, body: any, config: any): Promise<any>;
+  put(url: string, body?: any, config?: any): Promise<any>;
   /**
    * @name patch
    * @description axios patch Function
@@ -62,7 +62,7 @@ interface IAngxios {
    * @param {?object} body
    * @param {?object} config
    */
-  patch(url: string, body: any, config: any): Promise<any>;
+  patch(url: string, body?: any, config?: any): Promise<any>;
 }
 
 declare const angxios: IAngxios;
