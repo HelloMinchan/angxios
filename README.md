@@ -23,7 +23,7 @@ or
 Using yarn:
 
 ```bash
-yarn install angxios
+yarn add angxios
 ```
 
 ## Usage
